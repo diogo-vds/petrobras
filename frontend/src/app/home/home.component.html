@@ -1,0 +1,14 @@
+﻿<ng-container *ngIf="user">
+  <div>
+    <p class="text-end" *ngIf="today" style="color: #464673; font-family: 'Roboto', sans-serif; color: #d4af37;">
+      Hoje é {{ today }}
+    </p>
+  </div>
+  <div class="container text-end mt-3">
+    <h3 style="font-size: 25px;">
+      <span style="color: #464673;">Seja bem vindo(a) </span>
+      <span style="color: #d4af37; font-weight: bold;">{{ user.nome }}!!!</span>!
+    </h3>
+
+  </div>
+</ng-container>

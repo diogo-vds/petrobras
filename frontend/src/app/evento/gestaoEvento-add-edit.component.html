@@ -1,0 +1,40 @@
+<form [formGroup]="geForm" (ngSubmit)="onFormSubmit()">
+  <div mat-dialog-content class="content">
+    <div class="form-grid">
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Título</mat-label>
+        <input matInput type="text" placeholder="Ex. Casamento, Aniversário" formControlName="titulo">
+        <mat-error *ngIf="geForm.get('titulo')?.hasError('required')">O Título é obrigatório.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Descrição</mat-label>
+        <input matInput formControlName="descricao" placeholder="Ex. Casamento do João e Maria" />
+        <mat-error *ngIf="geForm.get('descricao')?.hasError('required')">A Descrição é obrigatória.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Data do Evento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dataEventoData" placeholder="dd/mm/aaaa" />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Hora do Evento</mat-label>
+        <input matInput type="time" formControlName="dataEventoHora" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-item">
+        <mat-label>Local</mat-label>
+        <input matInput formControlName="local" />
+        <mat-error *ngIf="geForm.get('local')?.hasError('required')">O Local é obrigatório.</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Atualizar' : 'Salvar'}}</button>
+  </div>
+</form>

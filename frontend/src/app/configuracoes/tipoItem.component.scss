@@ -1,0 +1,71 @@
+// Estilização do cabeçalho da tabela
+.mat-header-row {
+  background-color: #e1bee7; // Roxo claro
+}
+
+.mat-header-cell {
+  color: #4a148c; // Roxo escuro
+  font-weight: 600;
+}
+
+// Estilização das ações (ícones de editar e deletar)
+.action {
+  display: flex;
+  gap: 5px;
+}
+
+h1 {
+  color: #b39ddb; /* Roxo claro */
+  margin-top: 0; /* Remove margem superior extra */
+}
+
+h3 {
+    color: #d3d3d3; /* cinza claro */
+    margin-top: 0; /* Remove margem superior extra */
+    font-size: 23px;
+    code {
+      font-face: Roboto Mono;
+    }
+  }
+
+// Estilo do campo de filtro
+.main-body {
+  padding-top: 20px;
+  margin: 0 auto;
+  max-width: 1348px;
+  margin-top: 10px;
+    .table-container {
+      margin-top: 10px;
+    }
+  mat-form-field {
+    width: 100%;
+  }
+}
+
+// ⛔ Importante: use ::ng-deep para afetar o mat-paginator corretamente
+::ng-deep .mat-paginator-page-size {
+  font-size: 12px;
+  width: 80px;
+}
+
+.mat-header-row {
+  background-color: #e1bee7; // roxo claro
+}
+
+th.mat-header-cell {
+  color: #4a148c; // roxo escuro
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.table-container {
+  max-height: 700px; /* ou a altura que você preferir */
+  overflow-y: auto;
+}
+
+table mat-header-row {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #bdbdbd;
+}

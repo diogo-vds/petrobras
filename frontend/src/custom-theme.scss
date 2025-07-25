@@ -1,0 +1,40 @@
+@use '@angular/material' as mat;
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+:root {
+  --primary-color: #0f3460;
+  --accent-color: #e91e63;
+  --warn-color: #f44336;
+}
+
+$primary: mat.define-palette((
+  500: var(--primary-color),
+  contrast: (
+    500: white
+  )
+));
+
+$accent: mat.define-palette((
+  500: var(--accent-color),
+  contrast: (
+    500: white
+  )
+));
+
+$warn: mat.define-palette((
+  500: var(--warn-color),
+  contrast: (
+    500: white
+  )
+));
+
+$theme: mat.define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn
+  )
+));
+
+@include mat.all-legacy-component-themes($theme);

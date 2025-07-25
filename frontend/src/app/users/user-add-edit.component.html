@@ -1,0 +1,54 @@
+<div mat-dialog-title>
+    <h3>Cadastro de Usuário</h3>
+</div>
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" placeholder="Ex. Antonio Oliveira" formControlName="nome">
+            </mat-form-field>
+        </div>
+      <div class="row" >
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" placeholder="Ex. exemplo@exemplo.com.br" />
+          <mat-error style="max-height: 10px;" *ngIf="userForm.get('email')?.hasError('required')">O e-mail é obrigatório.</mat-error>
+          <mat-error style="max-height: 10px;" *ngIf="userForm.get('email')?.hasError('pattern')">Formato do e-mail está incorreto.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <small class="senha-hint">Use uma senha forte: Ex: Abc123@#</small>
+          <mat-form-field appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input
+              matInput
+              [type]="hidePassword ? 'password' : 'text'"
+              placeholder="Digite sua senha"
+              formControlName="senha"
+            >
+            <button mat-icon-button matSuffix (click)="togglePasswordVisibility()" type="button">
+              <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+      <div class="row">
+        <mat-form-field appearance="outline" style="width: 100%;">
+          <mat-label>Tipo de Perfil</mat-label>
+          <mat-select formControlName="perfil_id">
+            <mat-option *ngFor="let p of perfis" [value]="p.id">
+              {{ p.descricao }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="userForm.get('perfil_id')?.hasError('required')">
+            O perfil é obrigatório.
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+    </div>
+  <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Atualizar': 'Salvar'}}</button>
+    </div>
+</form>

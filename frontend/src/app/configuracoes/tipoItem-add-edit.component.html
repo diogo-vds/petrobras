@@ -1,0 +1,25 @@
+<div mat-dialog-title>
+    <h3>Cadastro de Tipos para Combos de Seleção</h3>
+</div>
+<form [formGroup]="itemForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Categoria</mat-label>
+                <input matInput type="text" placeholder="Ex. Tipo de Pessoa" formControlName="nomeCombo">
+            </mat-form-field>
+        </div>
+      <div class="row" >
+        <mat-form-field appearance="outline" floatLabel="auto">
+          <mat-label>Descrição</mat-label>
+          <input matInput formControlName="descricao" placeholder="Ex. Paciente, Cliente, Funcionário" />
+          <mat-error style="max-height: 10px;" *ngIf="itemForm.get('descricao')?.hasError('required')">A descrição é obrigatório.</mat-error>
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Atualizar': 'Salvar'}}</button>
+    </div>
+</form>
