@@ -71,10 +71,10 @@ public class EventServiceImpl implements EventService {
         Event existingEvent = eventRepository.findByIdAndDeletedFalse(id)
                 .orElseThrow(() -> new EventNotFoundException("Evento não encontrado com id: " + id));
 
-        existingEvent.setTitle(eventUpdateDTO.getTitle());
-        existingEvent.setDescription(eventUpdateDTO.getDescription());
-        existingEvent.setEventDateTime(eventUpdateDTO.getEventDateTime());
-        existingEvent.setLocation(eventUpdateDTO.getLocation());
+        existingEvent.setTitle(eventUpdateDTO.getTitulo());
+        existingEvent.setDescription(eventUpdateDTO.getDescricao());
+        existingEvent.setEventDateTime(eventUpdateDTO.getDataEvento());
+        existingEvent.setLocation(eventUpdateDTO.getLocal());
 
         Event updatedEvent = eventRepository.save(existingEvent);
         log.info("Evento atualizado com sucesso com id: {}", updatedEvent.getId());

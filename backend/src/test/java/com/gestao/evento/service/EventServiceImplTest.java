@@ -63,10 +63,10 @@ class EventServiceImplTest {
                 .build();
 
         eventUpdateDTO = EventUpdateDTO.builder()
-                .title("Evento Atualizado")
-                .description("Descrição Atualizada")
-                .eventDateTime(LocalDateTime.of(2025, 3, 3, 16, 0))
-                .location("Local Atualizado")
+                .titulo("Evento Atualizado")
+                .descricao("Descrição Atualizada")
+                .dataEvento(LocalDateTime.of(2025, 3, 3, 16, 0))
+                .local("Local Atualizado")
                 .build();
 
         eventResponseDTO = EventResponseDTO.builder()

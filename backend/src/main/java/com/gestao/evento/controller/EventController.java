@@ -113,7 +113,7 @@ public class EventController {
             @Parameter(description = "Dados do evento atualizados")
             @Valid @RequestBody EventUpdateDTO eventDTO) {
 
-        log.info("PUT /api/events/{} - Atualizando evento com título: {}", id, eventDTO.getTitle());
+        log.info("PUT /api/events/{} - Atualizando evento com título: {}", id, eventDTO.getTitulo());
 
         EventResponseDTO updatedEvent = eventService.updateEvent(id, eventDTO);
         return ResponseEntity.ok(updatedEvent);
