@@ -1,0 +1,31 @@
+# application.yml - Configuração simples
+spring:
+  # H2 Database
+  datasource:
+    url: jdbc:h2:mem:eventdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  # Console H2
+  h2:
+    console:
+      enabled: true
+
+  # JPA
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
+  # Desabilitar Flyway para simplicidade
+  flyway:
+    enabled: false
+
+server:
+  port: 8080
+
+# Swagger
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
